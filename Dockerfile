@@ -21,8 +21,6 @@ ENTRYPOINT ["java","-jar","app.jar"]
 #ENTRYPOINT ["java", "-jar", "spring-boot-docker-1.0.war"]
 
 
-#FROM tomcat:8.0-alpine
-#ARG JAR_FILE=target/spring-boot-docker-1.0.jar
-#ADD --from=MAVEN_TOOL_CHAIN /tmp/${JAR_FILE} /usr/local/tomcat/webapps/
-#EXPOSE 8080
-#CMD ["catalina.sh", "run"]
+#using tomcat - and package in pom.xml should be WAR
+#FROM tomcat:9.0-jre8-alpine
+#COPY --from=MAVEN_TOOL_CHAIN /tmp/target/*.war $CATALINA_HOME/webapps/app.war
