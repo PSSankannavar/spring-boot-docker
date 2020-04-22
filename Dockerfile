@@ -24,3 +24,9 @@ ENTRYPOINT ["java","-jar","app.jar"]
 #using tomcat - and package in pom.xml should be WAR
 #FROM tomcat:9.0-jre8-alpine
 #COPY --from=MAVEN_TOOL_CHAIN /tmp/target/*.war $CATALINA_HOME/webapps/app.war
+FROM tomcat:8.0-alpine
+LABEL maintainer="123456"
+RUN rm -rf /usr/local/tomcat/webapps/*
+ADD spring-boot-docker-1.0.war /usr/local/tomcat/webapps/app.war
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
