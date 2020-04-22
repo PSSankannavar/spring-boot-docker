@@ -8,4 +8,12 @@ RUN mvn package
 FROM openjdk:8-jdk-alpine
 ARG JAR_FILE=target/spring-boot-docker-1.0.jar
 COPY --from=MAVEN_TOOL_CHAIN /tmp/${JAR_FILE} app.jar
+#EXPOSE 8080
 ENTRYPOINT ["java","-jar","app.jar"]
+
+#FROM java:8-jdk-alpine
+#ARG JAR_FILE=target/spring-boot-docker-1.0.war
+#COPY --from=MAVEN_TOOL_CHAIN /tmp/${JAR_FILE}   /usr/app/
+#WORKDIR /usr/app
+#EXPOSE 8080
+#ENTRYPOINT ["java", "-jar", "spring-boot-docker-1.0.war"]
