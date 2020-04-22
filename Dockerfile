@@ -21,7 +21,7 @@ ENTRYPOINT ["java","-jar","app.jar"]
 #ENTRYPOINT ["java", "-jar", "spring-boot-docker-1.0.war"]
 
 
-#using tomcat - and package in pom.xml should be WAR
+#using tomcat and package in pom.xml should be WAR and to deploy spring boot on tomcat -extend springbootservletinitializer
 #FROM tomcat:9.0-jre8-alpine
 #COPY --from=MAVEN_TOOL_CHAIN /tmp/target/*.war $CATALINA_HOME/webapps/app.war
 #FROM tomcat
