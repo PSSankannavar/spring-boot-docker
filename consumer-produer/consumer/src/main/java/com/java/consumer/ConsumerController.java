@@ -24,7 +24,7 @@ public class ConsumerController {
 		
 		Map<String,String> uriVariables = new HashMap<>();
 		uriVariables.put("name", name);
-		ResponseEntity<String> forEntity = new RestTemplate().getForEntity("http://localhost:8080/producer/{name}", String.class,uriVariables);
+		ResponseEntity<String> forEntity = new RestTemplate().getForEntity("http://producer:8080/producer/{name}", String.class,uriVariables);
 		return forEntity.getBody();
 	}
 
