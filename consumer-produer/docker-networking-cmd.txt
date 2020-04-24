@@ -1,0 +1,8 @@
+#After pulling from github
+
+docker network create consumer-producer
+docker build -t consumer ./spring-boot-docker/consumer-produer/consumer/
+docker build -t produer ./spring-boot-docker/consumer-produer/producer/
+
+docker run --name producer --network consumer-producer -p 8080:8080 -d producer
+docker run --name consumer --network consumer-producer -p 8080:8080 -d consumer
