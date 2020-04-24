@@ -18,4 +18,3 @@ services:
             - producer
 networks:
     consumer-producer:
-        name: consumer-producer
