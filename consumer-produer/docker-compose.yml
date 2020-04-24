@@ -1,13 +1,13 @@
 version: '3'
 services:
     producer:
-        build: ./spring-boot-docker/consumer-produer/consumer/
+        build: ./consumer/
         networks:
             - consumer-producer
         ports:
             - '8080:8080'
     consumer:
-        build: ./spring-boot-docker/consumer-produer/producer/
+        build: ./producer/
         networks:
             - consumer-producer
         ports:
