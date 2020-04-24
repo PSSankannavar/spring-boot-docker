@@ -11,7 +11,7 @@ services:
         networks:
             - consumer-producer
         ports:
-            - '8880:8080'
+            - '8800:8080'
         depends_on:
             - producer
 networks:
