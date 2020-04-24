@@ -2,14 +2,14 @@ version: '3'
 services:
     producer:
         container_name: producer
-        build: ./consumer/
+        build: ./producer/
         networks:
             - consumer-producer
         ports:
             - '8080:8080'
     consumer:
         container_name: consumer
-        build: ./producer/
+        build: ./consumer/
         networks:
             - consumer-producer
         ports:
