@@ -15,4 +15,4 @@ services:
         depends_on:
             - producer
 networks:
-    - consumer-producer
+    consumer-producer
