@@ -1,4 +1,4 @@
-version: '3'
+version: '3.5'
 services:
     producer:
         container_name: producer
@@ -18,3 +18,4 @@ services:
             - producer
 networks:
     consumer-producer:
+       name: consumer-producer
