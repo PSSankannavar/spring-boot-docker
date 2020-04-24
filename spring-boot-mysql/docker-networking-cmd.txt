@@ -1,0 +1,4 @@
+docker network create spring-mysql
+
+docker run --network spring-mysql --name dbcontainer -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=test -d mysql:8.0.17
+docker  run --network spring-mysql --name application -p 8080:8080 -d spring-boot-docker
