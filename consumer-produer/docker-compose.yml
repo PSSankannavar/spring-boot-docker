@@ -1,21 +1,18 @@
-version :"3"
-
-
-services : 
-	producer :
-		build : ./consumer-produer/consumer/
-		networks :
-			- consumer-producer
-		port :
-			- 8080:8080
-	consumer :
-		build : ./consumer-produer/producer/
-		networks :
-			- consumer-producer
-		port :
-			- 8880:8080
-		depends_on : 
-			- producer
-
-networks : 
-	consumer-producer
+version: '3'
+services:
+    producer:
+        build: ./spring-boot-docker/consumer-produer/consumer/
+        networks:
+            - consumer-producer
+        port:
+            - '8080:8080'
+    consumer:
+        build: ./spring-boot-docker/consumer-produer/producer/
+        networks:
+            - consumer-producer
+        port:
+            - '8880:8080'
+        depends_on:
+            - producer
+networks:
+    - consumer-producer
