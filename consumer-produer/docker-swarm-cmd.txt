@@ -12,8 +12,8 @@ docker tag producer docker-hub-login-username/producer
 
 #login to docker hub and push images to private repository
 docker login
-docker push consumer
-docker push producer
+docker push psankann/consumer
+docker push psankann/producer
 
 #create service which will create conatiners as well,inside manager node itself - 
 docker service create --name producer --network consumer-producer --replicas=1 -d psankann/producer
