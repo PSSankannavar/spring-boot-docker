@@ -1,0 +1,24 @@
+#start docker swarm ,inside manager node
+docker swarm init
+
+#create network on manager node (no need to create on worker node)
+docker network create consumer-producer
+docker build -t consumer ./spring-boot-docker/consumer-produer/consumer/
+docker build -t producer ./spring-boot-docker/consumer-produer/producer/
+
+#rename to new tag as below else denied-requested-access-to-the-resource-is-denied-docker
+docker tag consumer docker-hub-login-username/consumer
+docker tag producer docker-hub-login-username/producer
+
+#login to docker hub and push images to private repository
+docker login
+docker push consumer
+docker push producer
+
+#create service which will create conatiners as well,inside manager node itself - 
+docker service create --name producer --network consumer-producer --replicas=1 -d psankann/producer
+docker service create --name consumer --network consumer-producer --replicas=1 -d psankann/consumer
+
+#ways to scale up service 
+docker service update --replicas=4 producer
+docker service scale producer=4
