@@ -2,7 +2,7 @@
 docker swarm init
 
 #create network on manager node (no need to create on worker node)
-docker network create consumer-producer
+docker network create --drive overlay consumer-producer
 docker build -t consumer ./spring-boot-docker/consumer-produer/consumer/
 docker build -t producer ./spring-boot-docker/consumer-produer/producer/
 
