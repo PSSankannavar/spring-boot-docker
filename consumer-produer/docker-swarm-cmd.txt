@@ -16,8 +16,8 @@ docker push docker-hub-username/consumer
 docker push docker-hub-username/producer
 
 #create service which will create conatiners as well,inside manager node itself - 
-docker service create --name producer --network consumer-producer --replicas=1 -d psankann/producer
-docker service create --name consumer --network consumer-producer --replicas=1 -d psankann/consumer
+docker service create --name producer --network consumer-producer --replicas=1 -d docker-hub-username/producer
+docker service create --name consumer --network consumer-producer --replicas=1 -d docker-hub-username/consumer
 
 #ways to scale up service 
 docker service update --replicas=4 producer
